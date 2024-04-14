@@ -22,10 +22,17 @@ Route::get('/', function () {
         'listings'=> Listing::all()
      ]);
 });
-//Single Listing
-Route::get('/listings/{id}', function($id){
+// //Single Listing
+// Route::get('/listings/{id}', function($id){
+//     return view('listing', [
+//         'listing' => Listing::find($id)
+//     ]);
+// });
+
+//Single Listing   // eta {listing} and $listing match korabe; jodi na pai taila by default 404 error diba
+Route::get('/listings/{listing}', function(Listing $listing){
     return view('listing', [
-        'listing' => Listing::find($id)
+        'listing' => $listing
     ]);
 });
 
