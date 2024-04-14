@@ -23,10 +23,18 @@ use Illuminate\Support\Facades\Route;
 // store - Store new listing
 // edit - Show form to edit listing
 // update - Update listing
-// destroy - Delete listing  
+// destroy - Delete listing
 
 //All Listings
 Route::get('/', [ListingController::class,'index'] );
+
+
+//Show create form
+Route::get('/listings/create', [ListingController::class, 'create'] );
+
+
+
+
 
 // //Single Listing
 // Route::get('/listings/{id}', function($id){
@@ -36,7 +44,7 @@ Route::get('/', [ListingController::class,'index'] );
 // });
 
 //Single Listing   // eta {listing} and $listing match korabe; jodi na pai taila by default 404 error diba
-Route::get('/listings/{listing}', [ListingController::class,'show'] );
+Route::get('/listings/{listing}', [ListingController::class,'show'] );  // eta bottom e rakhte hoba
 
 Route::get('/hello', function () {
     return "Bangla";
