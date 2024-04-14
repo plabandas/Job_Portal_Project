@@ -1,5 +1,5 @@
 
-<!-- 
+<!--
 
 <?php foreach($listings as $listing): ?>
        <h2><?php echo $listing['title']?></h2>
@@ -11,10 +11,14 @@
 
 <!--  For Using this blade : rename listings.blade.php in view folder -->
 
-@extends('layout')
+{{-- @extends('layout')
 
 {{-- eta dynamic content --}}
-@section('content')
+@section('content') --}}
+
+<x-layout>
+
+
 @include('partials._hero')
 @include('partials._search')
 
@@ -43,4 +47,5 @@
 
 </div>
 
-@endsection
+{{-- @endsection --}}
+</x-layout>
