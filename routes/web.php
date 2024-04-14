@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Models\Listing;
 use Faker\Provider\Lorem;
 use Illuminate\Http\Request;
@@ -16,12 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //All Listings
-Route::get('/', function () {
-     return view('listings', [
-        'heading'=> 'Latest Listings',
-        'listings'=> Listing::all()
-     ]);
-});
+Route::get('/', [ListingController::class,'index'] );
+
 // //Single Listing
 // Route::get('/listings/{id}', function($id){
 //     return view('listing', [
@@ -30,11 +27,7 @@ Route::get('/', function () {
 // });
 
 //Single Listing   // eta {listing} and $listing match korabe; jodi na pai taila by default 404 error diba
-Route::get('/listings/{listing}', function(Listing $listing){
-    return view('listing', [
-        'listing' => $listing
-    ]);
-});
+Route::get('/listings/{listing}', [ListingController::class,'show'] );
 
 Route::get('/hello', function () {
     return "Bangla";
