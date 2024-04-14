@@ -13,6 +13,13 @@ class Listing extends Model
       if($filter['tag'] ?? false){
         $query->where('tags', 'like', '%' . request('tag') . '%');  // Request tag ta tags coloum er modda khujba
       }
+
+      if($filter['search'] ?? false){
+        $query->where('title', 'like', '%' . request('search') . '%')  // Request search ta title coloum er modda khujba
+        ->orWhere('description', 'like', '%' . request('search') . '%')
+        ->orWhere('tags', 'like', '%' . request('search') . '%')
+        ->orWhere('location', 'like', '%' . request('search') . '%');
+      }
     }
 }
 
