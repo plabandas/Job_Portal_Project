@@ -9,3 +9,4 @@ class Listing extends Model
 {
     use HasFactory;
 }
+
