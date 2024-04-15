@@ -13,7 +13,7 @@
 
 {{-- @extends('layout')
 
-{{-- eta dynamic content --}}
+{{-- eta dynamic content
 @section('content') --}}
 
 <x-layout>
