@@ -35,6 +35,8 @@ Route::get('/listings/create', [ListingController::class, 'create'] );
 // Store Listing Data
 Route::post('/listings', [ListingController::class, 'store'] );
 
+//Show Edit Form  // Bracket er moddar variable muloto edit function er variable
+Route::get('/listings/{my_listing}/edit', [ListingController::class,'edit'] );
 
 
 

@@ -51,4 +51,11 @@ class ListingController extends Controller
 
         return redirect('/')->with('message', 'Listing created successfully!');
     }
+
+    public function edit(Listing $my_listing){  // Router
+
+        //dd($listing->all());
+        //dd($my_listing->title);
+        return view('listings.edit', ['listing' => $my_listing]);
+    }
 }
