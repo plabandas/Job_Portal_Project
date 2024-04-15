@@ -29,6 +29,7 @@ class ListingController extends Controller
         return view('listings.create');
     }
 
+    //Store Listing Data
     public function store(Request $request){
            //dd($request->all());
            //dd($request->file('logo'));
@@ -58,4 +59,27 @@ class ListingController extends Controller
         //dd($my_listing->title);
         return view('listings.edit', ['listing' => $my_listing]);
     }
+
+    public function update(Request $request, Listing $listing){
+        //dd($request->all());
+        //dd($request->file('logo'));
+
+        $formFields = $request->validate([
+         'title' => 'required',
+         'company' => ['required'],
+         'location' => 'required',
+         'website' => 'required',
+         'email' => ['required', 'email'],
+         'tags' => 'required',
+         'description' => 'required'
+     ]);
+
+     if($request->hasFile('logo')){
+         $formFields['logo'] = $request->file('logo')->store('logos','public');  // folder name logos in public folder
+     }
+
+     $listing->update($formFields);
+
+     return back()->with('message', 'Listing Updated successfully!');
+ }
 }
